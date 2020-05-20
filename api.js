@@ -8,30 +8,34 @@ var app = express();
 // in the home directory
 app.use(express.static(__dirname));
 
-//try a simpler rest get call
-app.get('/hello', function(req, res) {
-       console.log("hello");
+app.get('/instructions', function(req, res) {
+       console.log("instructions");
  });
 
-//lock rest get call
-app.get('/test1', function(req, res) {
-       piblaster.setPwm(11, 0.145);
-       res.end('Box is locked');
+app.get('/left', function(req, res) {
+       piblaster.setPwm(11, 0.9);
+       res.end('Left maybe');
  });
 
-//unlock rest get call
-app.get('/test2', function(req, res) {
-       piblaster.setPwm(10, 0.1);
-       res.end('Box is unlocked');
+app.get('/right', function(req, res) {
+       piblaster.setPwm(11, 0.1);
+       res.end('right maybe');
  });
 
+ app.get('/up', function(req, res) {
+        piblaster.setPwm(13, 0.2);
+        res.end('up');
+  });
 
-// Express route for any other unrecognised incoming requests
+  app.get('/down', function(req, res) {
+         piblaster.setPwm(13, 0.3);
+         res.end('down');
+   });
+
 app.get('*', function (req, res) {
        res.status(404).send('Unrecognised API call');
 });
 
-// Express route to handle errors
 app.use(function (err, req, res, next) {
  if (req.xhr) {
        res.status(500).send('Oops, Something went wrong!');
