@@ -13,22 +13,22 @@ app.get('/instructions', function(req, res) {
  });
 
 app.get('/left', function(req, res) {
-       piblaster.setPwm(11, 0.9);
+       // piblaster.setPwm(11, 0.9);
        res.end('Left maybe');
  });
 
 app.get('/right', function(req, res) {
-       piblaster.setPwm(11, 0.1);
+       // piblaster.setPwm(11, 0.1);
        res.end('right maybe');
  });
 
  app.get('/up', function(req, res) {
-        piblaster.setPwm(13, 0.2);
+        // piblaster.setPwm(13, 0.2);
         res.end('up');
   });
 
   app.get('/down', function(req, res) {
-         piblaster.setPwm(13, 0.3);
+         // piblaster.setPwm(13, 0.3);
          res.end('down');
    });
 

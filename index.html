@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>nicsworld</title>
+  <meta name="description" content="Pi bot">
+  <meta name="author" content="wicnoods">
+
+  <link rel="stylesheet" href="main.css">
+<script>
+  const pi = "http://192.168.86.20";
+
+  function left() {
+    fetch(`${pi}/left`);
+    console.log('left');
+  }
+
+  function up() {
+    fetch(`${pi}/up`);
+    console.log('up');
+  }
+
+  function down() {
+    fetch(`${pi}/down`);
+    console.log('down');
+  }
+
+  function right() {
+    fetch(`${pi}/right`);
+    console.log('right');
+  }
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="controls">
+      <i onClick="left()" class="control left"></i>
+      <i onClick="up()" class="control up"></i>
+      <i onClick="down()" class="control down"></i>
+      <i onClick="right()" class="control right"></i>
+    </div>
+  </div>
+  <!-- <script src="js/scripts.js"></script> -->
+</body>
+</html>
